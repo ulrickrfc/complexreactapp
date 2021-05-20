@@ -16,13 +16,9 @@ function HeaderLoggout(props) {
       const response = await Axios.post('/login', { username, password }) //faz chamada pro back-end
       if (response.data) {
         console.log(response.data)
-        appDispatch({ type: "login" })
+        appDispatch({ type: "login", data: response.data })
 
-        //Salvado dados no localStorage
 
-        localStorage.setItem("complexappToken", response.data.token)
-        localStorage.setItem("complexappUserName", response.data.username)
-        localStorage.setItem("complexappAvatar", response.data.avatar)
       } else {
         console.log("Senha ou Login incorreto")
       }

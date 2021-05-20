@@ -3,6 +3,8 @@ import Page from './Page'
 import Axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import DispatchContext from "../DispatchContext"
+import StateContext from "../StateContext"
+
 
 function CreatePost(props) {
 
@@ -10,12 +12,14 @@ function CreatePost(props) {
   const [body, setBody] = useState()
 
   const appDispatch = useContext(DispatchContext)
+  const appState = useContext(StateContext)
+
 
   async function pegaSubmit(e) {
 
     e.preventDefault()
     try {
-      const response = await Axios.post("/create-post", { title, body, token: localStorage.getItem("complexappToken") })
+      const response = await Axios.post("/create-post", { title, body, token: appState.user.token })
       appDispatch({ type: "flashMessage", value: "Seu post foi criado com sucesso!" })
 
       //Redireciona para pagina do post
