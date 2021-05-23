@@ -15,6 +15,7 @@ import Home from './components/Home'
 import CreatePost from './components/CreatePost'
 import ViewSinglePost from './components/ViewSlinglePost'
 import FlashMessages from './components/FlashMessages'
+import Profile from './components/Profile'
 
 import StateContext from './StateContext'
 import DispatchContext from './DispatchContext'
@@ -89,6 +90,10 @@ function Main() {
 
             <Route path="/post/:id">
               <ViewSinglePost />
+            </Route>
+
+            <Route path="/profile/:username">
+              <Profile />
             </Route>
 
           </Switch>
