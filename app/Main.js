@@ -16,6 +16,7 @@ import CreatePost from './components/CreatePost'
 import ViewSinglePost from './components/ViewSlinglePost'
 import FlashMessages from './components/FlashMessages'
 import Profile from './components/Profile'
+import EditPost from './components/EditPost'
 
 import StateContext from './StateContext'
 import DispatchContext from './DispatchContext'
@@ -88,9 +89,13 @@ function Main() {
               <CreatePost />
             </Route>
 
-            <Route path="/post/:id">
+            <Route path="/post/:id" exact>
               <ViewSinglePost />
             </Route>
+
+            <Route path="/post/:id/edit" exact>
+              <EditPost />
+            </ Route>
 
             <Route path="/profile/:username">
               <Profile />
