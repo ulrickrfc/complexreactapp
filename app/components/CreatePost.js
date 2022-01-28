@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react"
 import Page from './Page'
 import Axios from 'axios'
-import { withRouter } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
 
@@ -11,6 +11,8 @@ function CreatePost(props) {
   const [title, setTitle] = useState()
   const [body, setBody] = useState()
 
+  const navigate = useNavigate()
+  
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
@@ -23,7 +25,7 @@ function CreatePost(props) {
       appDispatch({ type: "flashMessage", value: "Seu post foi criado com sucesso!" })
 
       //Redireciona para pagina do post
-      props.history.push(`/post/${response.data}`)
+      navigate(`/post/${response.data}`)
 
       console.log("Novo post criado")
     } catch (e) {
@@ -53,4 +55,4 @@ function CreatePost(props) {
   )
 }
 
-export default withRouter(CreatePost)
+export default CreatePost
