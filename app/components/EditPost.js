@@ -154,6 +154,9 @@ function EditPost() {
     </Page>
   )
 
+  function debug(){
+    console.log('click')
+  }
   return (
     <Page title="Edit Post">
 
@@ -180,7 +183,7 @@ function EditPost() {
           <textarea onBlur={e => dispatch({ type: "bodyRules", value: e.target.value })} onChange={e => { dispatch({ type: "bodyChange", value: e.target.value }) }} value={state.body.value} name="body" id="post-body" className="body-content tall-textarea form-control" type="text" />
         </div>
 
-        <button className="btn btn-primary" disabled={state.isSaving}>Edit Post</button>
+        <button className="btn btn-primary" onClick={debug} disabled={state.isSaving}>Edit Post</button>
       </form>
     </Page>
   )
