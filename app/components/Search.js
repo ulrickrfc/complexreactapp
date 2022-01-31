@@ -50,7 +50,7 @@ function Search(){
 
     }, [state.searchTerm])
 
-    useEffect( () => {
+    useEffect( () => { 
       if(state.requestCount){
         // Axios request here
         const ourRequest = Axios.CancelToken.source()
